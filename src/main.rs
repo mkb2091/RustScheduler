@@ -46,35 +46,11 @@ fn get_score(event: [u8; 144]) -> f32 {
 fn gen_layout() -> [u8; 144] {
     let mut rng = thread_rng();
     let mut event: [u8; 144] = [0; 144];
+    let mut options: [u8; 24] = [0;24];
     for i in 0..24 {
         event[i as usize] = i;
+        options[i as usize] = i;
     }
-    let mut options = vec![
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-    ];
     for r in 1..6 {
         let r: usize = r * 24;
         rng.shuffle(&mut options);
